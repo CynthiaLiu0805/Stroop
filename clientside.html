@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Stroop</title>
+  <h1 class="header">Stroop</h1>
+  <h2 class="subheader"></h2>
+
+  <link rel="stylesheet" href="style.css">
+  <style type='text/css'>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /*STROOP*/
+  .header{
+      position: absolute;
+      top:0px;
+      left:550px;
+      font-family: helvetica;
+      font-weight: bold;
+      font-size:46px;
+    }
+  
+  h1{
+    position: absolute;
+    top:60px;
+    left:20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+  }
+
+  /*object changing colour*/ 
+  .text{
+      position: absolute;
+      text-align: center;
+      top:200px;
+      left:500px;
+      z-index: 2;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      font-size: 60px;
+      color:black;
+  }
+  .button{
+      position: absolute;
+      top:400px;
+      left:520px;
+      z-index: 2;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 48px;
+  }
+
+
+
+  /*timer*/
+  .timer{
+      position: absolute;
+      top: 0px;
+      left: 1000px;
+      font-family: Arial;
+      font-size: 24px;
+      background: #c5c5c5;
+      width: 200px;
+      height: 27px;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+      text-decoration: none;
+    
+    }
+  .button {
+      position: absolute;
+      width: 150px;
+      height: 50px;
+      font-size: 36px;
+      background: rgb(168, 168, 168);
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+      color:black;
+      text-decoration: none;
+  }
+  .button1{
+      top: 20px;
+      left:20px;
+  }
+  .button2{
+      top: 20px;
+      left:200px;
+  }
+  .button3{
+      font-family: Arial;
+      top: 220px;
+      left:1020px;
+      color:black;
+      text-decoration: none;
+  }
+  .button4{
+      font-family: Arial;
+      top: 400px;
+      left:450px;
+      width: 350px;
+      font-size: 24px;
+      color:black;
+      text-decoration: none;
+  }
+      
+  /*score*/
+  .scoree{
+      position: absolute;
+      top: 50px;
+      left: 1000px;
+      font-family: Arial;
+      font-size: 24px;
+      text-align: left;
+      text-decoration: none;
+      z-index: 3;      
+    }
+
+
+  .score{
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+    font-family: Arial;
+    font-size: 24px;
+    background: #c5c5c5;
+    width: 200px;
+    height: 27px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    text-decoration: none;    
+    }
+
+   .averesponsetime{
+    position: absolute;
+    top: 105px;
+    left: 1000px;
+    font-family: Arial;
+    font-size: 24px;
+    background: #c5c5c5;
+    width: 200px;
+    height: 27px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+    text-align: left;
+    text-decoration: none;
+   }
+   
+
+
+  /*the choice*/
+  .grid {
+      position: absolute;
+      top: 500px;
+      left: 250px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;  
+      z-index: 3;
+      width:720px;
+      cursor: pointer;
+  }
+  .buttons{
+      margin: 0px;
+      background: rgb(168, 168, 168);
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 45px;
+      width: 180px;
+      font-size: 36px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .chosen { 
+      border-style: solid;
+      border-width: 1px;
+      border-color: #707070;
+      border-style: ridge;
+  }
+    
+    
+    
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+    <a href="project3.html"><button class='button button3'>logout</button></a>
+
+
+<body>
+    <h1>
+    
+      Hi, nice to see you
+    
+    </h1>
+
+
+
+    <span class="text" id="Text">Ready..?</span>
+
+   
+    <button class="button button1" id="start" onclick="timer()">START</button>
+    <button class="button button2" id="reset" onclick="timer()">RESET</button>
+    <button class="button button4" id="test" >Save your score</button>
+    
+
+
+    <p class="timer" id="timer">   Timer : </p>
+    <p class="scoree">Score : </p><p class="score" id="scoresofar"></p>
+    <p class="averesponsetime" id = 'avetime'>AveTime : </p>
+
+
+
+    <div id="buttons"></div>
+
+    <script type='text/javascript'>
+      var TEXT =[
+        "RED",
+        "BLUE",
+        "GREEN",
+        "PINK",
+        "BLACK",
+        "ORANGE",
+        "GRAY",
+        "YELLOW",
+      ];
+
+      var COLORS = [
+        "red",
+        "blue",
+        "green",
+        "pink",
+        "black",
+        "orange",
+        "gray",
+        "#ffee00",
+      ];
+
+      var BUTTONS = [{
+          'name':'red',
+          'text':'RED',
+      },{
+          'name':'blue',
+          'text':'BLUE',
+      },{
+          'name':'green',
+          'text':'GREEN',
+      },{
+          'name':'pink',
+          'text':'PINK',
+      },{
+          'name':'black',
+          'text':'BLACK',
+      },{
+          'name':'orange',
+          'text':'ORANGE',
+      },{
+          'name':'gray',
+          'text':'GRAY',
+      },{
+          'name':'#ffee00',
+          'text':'YELLOW',
+      },]
+
+      //buttons
+      //cards are randomly exchanging position
+      var multiChoices= BUTTONS.sort(() => 0.5 - Math.random());
+
+      var choice = document.getElementById('buttons');
+      var grid = document.createElement('section');
+      grid.setAttribute('class', 'grid');
+      choice.appendChild(grid);
+
+      multiChoices.forEach(function (item) {
+        var buttons = document.createElement('div');
+        buttons.classList.add('buttons');
+        buttons.dataset.name = item.name;
+        buttons.textContent = item.text;
+        grid.appendChild(buttons);
+      });
+
+
+
+      var colorIndex
+      var textIndex
+
+      //next random text with random color
+      function next(){
+
+          colorIndex=Math.floor(COLORS.length * Math.random())
+          textIndex=Math.floor(TEXT.length * Math.random())
+
+          document.getElementById("Text").style.color=COLORS[colorIndex];
+
+          document.getElementById('Text').innerHTML=TEXT[textIndex];
+
+      }
+
+      //About score
+      var score = document.getElementById('scoresofar')
+      var scoresofar = 0
+      var avetime=document.getElementById('avetime')
+      var ave_time=0
+      var counter=0
+      var totaltime=0
+
+      //check if button match the color on text
+      //if so add score, the calculation is add the time remaining to score
+      grid.addEventListener('click', match); 
+      function match(){
+          var iclick = event.target
+
+          if (iclick.dataset.name === COLORS[colorIndex]){
+              //this is for average response time
+              counter++
+              totaltime=11-sec+totaltime
+              ave_time=totaltime/counter
+              //round to two decimals
+              avetime.innerHTML='AveTime : '+ Math.round(ave_time * 100) / 100
+           
+              scoresofar+=sec
+              score.innerHTML = scoresofar
+              resettime()
+              next()
+              
+          }else{
+              counter++
+              totaltime=11-sec+totaltime
+              ave_time=totaltime/counter
+              time=Math.round(ave_time * 100) / 100
+              avetime.innerHTML='AveTime : '+ Math.round(ave_time * 100) / 100
+
+              grid.removeEventListener('click',match)
+              //document.getElementById('score').value = scoresofar
+              var arr= { 'score': scoresofar }
+              setTimeout(alert("Game Over, your score is " + scoresofar + " and your average response time is "+ time+ ' s '),2000)
+              stop()
+              //post score data to database
+              $("button").click(function(){
+         
+                $.ajax({
+                    url: "https://mac1xa3.ca/e/liuy363/myscore/",
+                    type: 'POST',
+                    data: JSON.stringify(arr),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: false,
+                    success: function(msg){
+                        alert('success');
+                    }
+                })
+               })
+               
+               stop()              
+              
+
+          }
+
+      }
+       
+
+
+
+
+
+
+      //About timer
+      var timer
+      var sec = 11
+
+      var time = document.getElementById('timer')
+      function timer() {
+          //after start cannot click start again
+          document.getElementById("start").disabled=true
+          sec--;
+          if (sec===0){
+              grid.removeEventListener('click',match)
+              
+              alert("You are running out of time")
+              stop()
+          }
+          showtime()
+      }
+
+      function showtime(){
+          time.innerHTML = "Timer : " + sec
+      }
+
+      function resettime(){
+          sec=11
+          next()
+          timer()
+          
+      }
+
+
+
+      //click start to start
+      var start = document.getElementById("start")
+      start.addEventListener('click', function(){
+          next()
+          timer = setInterval(timer,1000);
+            
+      })
+
+      var stop
+      function stop(){
+         timer=clearInterval(timer)
+      }
+
+
+      var reset = document.getElementById("reset")
+      reset.addEventListener('click', function(){
+          location.reload()
+          timer = clearInterval(timer);
+          sec=10;
+          time.innerHTML="Timer : 10"
+      })
+      //end
+         
+    
+    </script>
+</body>
