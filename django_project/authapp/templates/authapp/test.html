@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>    
+<button id='fasdfsa'> anjdsbsf</button>
+
+<script>
+var arr={ data: 'asdfda', another: 'asdfsa' };   
+$("button").click(function(){
+         
+         $.ajax({
+             url: '{{ views.score }}',
+             type: 'POST',
+             data: JSON.stringify(arr),
+             contentType: 'application/json; charset=utf-8',
+             dataType: 'json',
+             async: false,
+             success: function(msg){
+                 alert('dsfaidsfnjasf');
+             }
+         })
+        })
+       
+
+</script>
+
+
+<body>
+    
+</body>
+</html>
+
