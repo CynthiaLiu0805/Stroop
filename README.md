@@ -2,7 +2,7 @@
 ##### This game asks the player to choose the correct color of the text, where the text could be the name of different colours.It is an application of Stroop Effect in psychology.
 ##### More about the Stroop Effect see wiki: [Stroop Effect](https://en.wikipedia.org/wiki/Stroop_effect)
 
-##Demo
+## Demo
 ![img](https://github.com/CynthiaLiu0805/Stroop/blob/master/demo.gif)
 
 
